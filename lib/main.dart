@@ -24,9 +24,11 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Screen Filters'),
+          title: Text('009.am', textScaleFactor: 1.5),
           actions: <Widget>[
+
             PopupMenuButton<Choice>(
+              icon: Icon(Icons.filter_3, size: 37,),
               onSelected: _select,
               itemBuilder: (BuildContext context) {
                 return choices.map((Choice choice) {
@@ -43,6 +45,40 @@ class _MyAppState extends State<MyApp> {
           padding: const EdgeInsets.all(16.0),
           child: ChoiceCard(choice: _selectedChoice),
         ),
+        persistentFooterButtons: <Widget>[
+
+          IconButton(
+              icon: Icon(Icons.chat, size: 40, semanticLabel: 'Чат', color: Colors.deepPurple),
+              onPressed: () {//info.openPageInfo(context);},
+
+              } ),
+
+          IconButton(
+              icon: Icon(Icons.account_circle, size: 40, semanticLabel: 'Профиль', color: Colors.black26),
+              onPressed: () {//info.openPageInfo(context);},
+
+              } ),
+
+          IconButton(
+              icon: Icon(Icons.add_box, size: 40, semanticLabel: 'Рецепты', color: Colors.blue),
+              onPressed: () {//info.openPageInfo(context);},
+
+              }),
+
+
+          IconButton(
+            icon: Icon(Icons.settings, size: 40, semanticLabel: 'Настройки', color: Colors.deepOrange),
+            onPressed: () { //settings.openPageSettings(context);},
+
+            }),
+
+
+          IconButton(
+            icon: Icon(Icons.info_outline, size: 40, semanticLabel: 'Info', color: Colors.green),
+            onPressed: () {//info.openPageInfo(context);},
+
+           }),
+        ],
       ),
     );
   }
@@ -74,7 +110,7 @@ class Choice {
   const Choice({this.title, this.list});
 
   final String title;
-  final List<String> list;
+  final List<dynamic> list;
 }
 
 const List<Choice> choices = const <Choice>[
